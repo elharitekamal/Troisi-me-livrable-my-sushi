@@ -7,8 +7,6 @@ const closebtn = document.querySelector(".clo-ico");
 
 const ulc = document.querySelector('.NV');
 
-let btn = document.querySelectorAll(".select");
-
 openbtn.addEventListener("click",()=>{
     ulc.style.right = "0"; 
 })
@@ -38,15 +36,14 @@ btnorder.forEach((element) => {
 
 // Selection des categories
 
-
+// btns
 const all = document.querySelector(".all");
 const salades = document.querySelector(".salades");
 const obento = document.querySelector(".obento");
 const plat = document.querySelector(".plat");
+
+// plat container
 let main = document.querySelectorAll(".main");
-
-
-
 
 
 
@@ -57,7 +54,7 @@ salades.addEventListener('click',function(){
         element.style.display = "block"
        if(!element.classList.contains("salade")){
         element.style.display = "none";
-        console.log("rr")
+       
 
        }
 
@@ -70,7 +67,7 @@ obento.addEventListener('click',function(){
         element.style.display = "block"
        if(!element.classList.contains("obento")){
         element.style.display = "none";
-        console.log("rr")
+      
 
        }
 
@@ -84,7 +81,7 @@ plat.addEventListener('click',function(){
         element.style.display = "block"
        if(!element.classList.contains("plat")){
         element.style.display = "none";
-        console.log("rr")
+      
 
        }
 
@@ -101,14 +98,15 @@ all.addEventListener('click', function(){
 
 // =============== panier
 
-
+// icon
 let carte = document.querySelector("#cart");
+
+
 let panier = document.querySelector(".carte");
 
 carte.addEventListener('click', function() {
-    // khalifa
     panier.classList.toggle("show")                     
-    console.log("panier")
+    
 })
 
 
@@ -121,7 +119,7 @@ order.forEach(element => {
       const price = pa.querySelector(".price").innerHTML;
 
 
-    //   console.log(prod ,price ,pa)
+    
       let panier = document.querySelector(".carte");
 
       let a = `<div class="product">
@@ -136,19 +134,21 @@ order.forEach(element => {
 })
 
 
+
+// calcul
+
 let calculate = document.querySelector("#calc");
         calculate.addEventListener("click",function(){
-            let pannier = document.getElementsByClassName("carte")[0];
+            let pannier = document.querySelector(".carte");
             let calculateArray = [];
             let command = pannier.querySelectorAll(".product");
-            console.log(pannier)
+          
  
             command.forEach(element=>{
                 let prix = element.querySelector(".price").innerHTML.replace("$","");
 
                 let quantity = element.querySelector(".num_product");
-                console.log(prix ,quantity.value)
-                
+               
                 calculateArray.push(Number(prix)*quantity.value);
                 
 
